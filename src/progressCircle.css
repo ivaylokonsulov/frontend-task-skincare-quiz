@@ -1,0 +1,21 @@
+.progress-circle {
+    display: inline-block;
+    margin: auto;
+  }
+  
+  .circle-background {
+    fill: none;
+    stroke: #EEF7FB;
+  }
+  
+  .circle-progress {
+    fill: none;
+    stroke: #AADDF3;
+    stroke-linecap: round;
+  }
+  
+  .progress-text {
+    font-size: 20px;
+    font-weight: 300;
+    fill: #1C2635;
+  }

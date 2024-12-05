@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import questions from "./Questions";
+import ProgressCircle from "./ProgressCircle";
 
 function QuizPage({onReturnBack, onCompletionOfQuiz, answers, setAnswers}) {
     // Questions index
@@ -16,7 +17,7 @@ function QuizPage({onReturnBack, onCompletionOfQuiz, answers, setAnswers}) {
 
     // Handling clicking on back button
     const handleBack = () => {
-        if (currentQuestionIndex > 1) {
+        if (currentQuestionIndex > 0) {
             setCurrentQuestionIndex(currentQuestionIndex - 1);
         } else {
             onReturnBack();
@@ -28,8 +29,8 @@ function QuizPage({onReturnBack, onCompletionOfQuiz, answers, setAnswers}) {
     // Handling answering a question
     function recordAnswer(index, option){
         setAnswers((prevAnswers) => {
-            const newAnswers = [...prevAnswers]; // Create a copy of the array
-            newAnswers[index] = option; // Update the specific index
+            const newAnswers = [...prevAnswers]; 
+            newAnswers[index] = option; 
             console.log(newAnswers);
             return newAnswers; // Return the updated array
           });
@@ -56,7 +57,11 @@ function QuizPage({onReturnBack, onCompletionOfQuiz, answers, setAnswers}) {
                         {currentQuestionIndex === questions.length - 1 ? "Discover your results" : "Next Question"}
                     </button>
                 </div>
+                
             </div>
+            <div className="progress-container">
+                    <ProgressCircle currentQuestion={currentQuestionIndex + 1} totalQuestions={questions.length}/>
+                </div>
         </div>
     );
 }

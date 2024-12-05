@@ -15,6 +15,7 @@
 .main-page-img-div{
   position: relative;
   width: 1440px;
+  height: 526px;
   background-image: url('./mainPagePhoto.png'); 
   background-repeat: no-repeat;
   background-size: cover; /* Ensure the background covers the div */
