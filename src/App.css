@@ -2,26 +2,77 @@
   text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
+.main-page {
+  justify-items: center;
+  background-color: #FFFFFF;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #FFFFFF;
+  display: flex; /* Flex for content on main page */
+  flex-direction: column; /* Content flows vertically */
+  align-items: center; /* Center horizontally */
 }
 
-.App-link {
-  color: #61dafb;
+.main-page-img-div{
+  position: relative;
+  width: 1440px;
+  height: 526px;
+  background-image: url('./mainPagePhoto.png'); 
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensure the background covers the div */
+  background-position: top; /* Center the background image */
+  display: flex; /* Flexbox for centering */
+  /* Content positioning */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-page-title-div{
+  margin: 8px;
+}
+
+.main-page-content-div{
+  width: 583px;
+  text-align: center; /* Center text inside the content div */
+  height: 207px;
+  font-size: 40px;
+  font-weight: 600;
+  font-family: Arial; /* TODO change later to Grange*/
+  color: #FFFFFF;
+  justify-items: center;
+}
+
+.main-page-subtitle-div{
+  width: 327px;
+  height: 32px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: Arial; /* TODO change later to Proxima Nova*/
+  color: #FFFFFF;
+  margin: 8px;
+}
+
+.main-page-button-div{
+  vertical-align: bottom;
+}
+
+.start-the-quiz-button{
+  width: 174;
+  height: 47;
+  padding-left: 40px;
+  padding-top: 14px;
+  padding-right: 40px;
+  padding-bottom: 14px;
+  border-radius: 8px;
+  border: #C3EDFF;
+  background-color: #C3EDFF;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Arial; /* TODO change later Proxima Nova*/
+  color: #1C2635;
+  margin: 8px;
+}
+
+.start-the-quiz-button:hover{
+  background-color: #5fbadb;
+  cursor: pointer;
 }
