@@ -1,0 +1,83 @@
+.quiz-page{
+    justify-items: center;
+    background-color: #FFFFFF;
+    min-height: 100vh;
+    color: #FFFFFF;
+    display: flex; /* Flex for content on main page */
+    flex-direction: column; /* Content flows vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center;
+}
+
+.question-title{
+    width: 583px; /* TODO */
+    text-align: center; /* Center text inside the content div */
+    max-height: 88px; /* TODO */
+    font-size: 40px;
+    font-weight: 600;
+    font-family: Arial; /* TODO change later to Grange*/
+    color: #1C2635;
+}
+
+.options-div{
+    margin: 9px;
+}
+
+.answer-option-button{
+    max-height: 44px; /* TODO */
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    border-width: 1px;
+    border-color: #5BC1ED;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif; /* TODO change later to Proxima Nova*/
+    padding-left: 20px;
+    padding-top: 14px;
+    padding-right: 40px;
+    padding-bottom: 14px;
+    margin: 8px;
+    line-height: 19px;
+    color: #1C2635;
+}
+
+.answer-option-button:hover{
+    cursor: pointer;
+    background-color: #5BC1ED;
+}
+
+.quiz-page-next-button{
+    font-size: 16px;
+    font-weight: 500;
+    padding-top: 40px;
+    padding-top: 14px;
+    padding-right: 40px;
+    padding-bottom: 14px;
+    background-color: #C3EDFF;
+    border-color: transparent;
+    border-radius: 8px;
+    color: #1C2635;
+    margin: 9px;
+}
+
+.quiz-page-next-button:hover{
+    background-color: #5fbadb;
+    cursor: pointer;
+}
+
+.quiz-page-back-button{
+    margin: 9px;
+    background-color: transparent;
+    color: #677487;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif; /* TODO change later to Proxima Nova*/
+    font-weight: 500;
+    line-height: 20px;
+    border-color: transparent;
+    text-decoration: underline;
+}
+
+.quiz-page-back-button:hover{
+    cursor: pointer;
+    color: #5fbadb;
+}

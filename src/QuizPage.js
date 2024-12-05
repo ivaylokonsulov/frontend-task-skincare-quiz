@@ -1,30 +1,64 @@
 import React, { useState } from "react";
 import questions from "./Questions";
 
-function QuizPage() {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+function QuizPage({onReturnBack, onCompletionOfQuiz, answers, setAnswers}) {
+    // Questions index
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
-  const handleNext = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      alert("Quiz Completed!");
+    // Handling clicking on next button
+    const handleNext = () => {
+        if (currentQuestionIndex < questions.length - 1) {
+            setCurrentQuestionIndex(currentQuestionIndex + 1);
+        } else {
+            onCompletionOfQuiz();
+        }
+    };
+
+    // Handling clicking on back button
+    const handleBack = () => {
+        if (currentQuestionIndex > 1) {
+            setCurrentQuestionIndex(currentQuestionIndex - 1);
+        } else {
+            onReturnBack();
+        }
     }
-  };
 
-  return (
-    <div className="quiz-page">
-      <h1>{questions[currentQuestionIndex].question}</h1>
-      <ul>
-        {questions[currentQuestionIndex].options.map((option, index) => (
-          <li key={index}>{option}</li>
-        ))}
-      </ul>
-      <button onClick={handleNext}>
-        {currentQuestionIndex === questions.length - 1 ? "Finish" : "Next"}
-      </button>
-    </div>
-  );
+
+
+    // Handling answering a question
+    function recordAnswer(index, option){
+        setAnswers((prevAnswers) => {
+            const newAnswers = [...prevAnswers]; // Create a copy of the array
+            newAnswers[index] = option; // Update the specific index
+            console.log(newAnswers);
+            return newAnswers; // Return the updated array
+          });
+        // Moving on the next question using handleNext function
+        handleNext();
+    }
+
+    return (
+        <div className="quiz-page">
+            <div className="question-title">
+                {questions[currentQuestionIndex].question}
+            </div>
+            <div className="options-div">
+            {questions[currentQuestionIndex].options.map((option, index) => (
+            <button className="answer-option-button" onClick={() => recordAnswer(currentQuestionIndex, option)} key={index}>{option} </button>
+            ))}
+            </div>
+            <div className="back-next-div">
+                <div className="quiz-buttons">
+                    <button className="quiz-page-back-button" onClick={handleBack}>
+                        Back
+                    </button>
+                    <button className='quiz-page-next-button' onClick={handleNext}>
+                        {currentQuestionIndex === questions.length - 1 ? "Discover your results" : "Next Question"}
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default QuizPage;
