@@ -10,9 +10,8 @@
 }
 
 .question-title{
-    width: 583px; /* TODO */
+    width: 40vw;
     text-align: center; /* Center text inside the content div */
-    max-height: 88px; /* TODO */
     font-size: 40px;
     font-weight: 600;
     font-family: Arial; /* TODO change later to Grange*/
@@ -24,7 +23,6 @@
 }
 
 .answer-option-button{
-    max-height: 44px; /* TODO */
     background-color: #FFFFFF;
     border-radius: 8px;
     border-width: 1px;
@@ -43,6 +41,10 @@
 
 .answer-option-button:hover{
     cursor: pointer;
+    background-color: #5BC1ED;
+}
+
+.answer-option-button.selected{
     background-color: #5BC1ED;
 }
 

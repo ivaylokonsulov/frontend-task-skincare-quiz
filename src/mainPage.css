@@ -14,12 +14,12 @@
 
 .main-page-img-div{
   position: relative;
-  width: 1440px;
-  height: 526px;
-  background-image: url('./mainPagePhoto.png'); 
+  width: 100%;
+  height: 50vh;
+  background-image: url('./mainPagePhoto.png');
   background-repeat: no-repeat;
   background-size: cover; /* Ensure the background covers the div */
-  background-position: top; /* Center the background image */
+  background-position: top;
   display: flex; /* Flexbox for centering */
   /* Content positioning */
   align-items: center; /* Center content vertically */
@@ -28,12 +28,12 @@
 
 .main-page-title-div{
   margin: 8px;
+  line-height: 44px;
 }
 
 .main-page-content-div{
-  width: 583px; /* TODO */
+  width: 40vw; /* TODO */
   text-align: center; /* Center text inside the content div */
-  height: 207px; /* TODO */
   font-size: 40px;
   font-weight: 600;
   font-family: Arial; /* TODO change later to Grange*/
@@ -42,9 +42,9 @@
 }
 
 .main-page-subtitle-div{
-  width: 327px; /* TODO */
-  height: 32px; /* TODO */
+  width: 23vw;
   font-size: 16px;
+  line-height: 24px;
   font-weight: 400;
   font-family: Arial; /* TODO change later to Proxima Nova*/
   color: #FFFFFF;

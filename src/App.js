@@ -1,5 +1,6 @@
 import './mainPage.css';
 import './quizPage.css';
+import './discoverResults.css';
 import MainPage from './MainPage.js';
 import React, { useState } from "react";
 import QuizPage from "./QuizPage";
@@ -15,6 +16,31 @@ function App() {
   // Handling discovering results
   const [showDiscoverResults, setDiscoverResults] = useState(false);
 
+  // Fetching data from endpoint
+  const [products, setProducts] = useState([]);
+  const fetchProducts = async () => {
+      try {
+        const response = await fetch(
+          "https://jeval.com.au/collections/hair-care/products.json?page=1"
+        );
+        const data = await response.json();
+        setProducts(data.products);
+        populateWishlist(data.products);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+  // Storing wishlist
+  const [wishlist, setWishlist] = useState({});
+  const populateWishlist = (items) => {
+    const allProductIds = {};
+    items.forEach(element => {
+      allProductIds[element.id] = false;
+    });
+    setWishlist(allProductIds);
+  }
+
   //  Function passed to Main Page to control whether Quiz Page is to be shown
   const startQuiz = () => {
     setMainPage(false);
@@ -23,14 +49,16 @@ function App() {
   // Function passed to Quiz Page for handling Returning back to Main page
   const returnBack = () => {
     setShowQuiz(false);
+    setDiscoverResults(false);
     setMainPage(true);
   }
- 
+
   // Function passed to Quiz Page for handling completion of test
   const completeTest = () => {
     setDiscoverResults(true);
     setShowQuiz(false);
     setMainPage(false);
+    fetchProducts();
   }
 
   // Use state for answering questions. Creating an empty array to fill inset
@@ -40,7 +68,7 @@ function App() {
   if (showMainPage && !showQuiz && !showDiscoverResults){
     return(
       <div className="App">
-           { <MainPage onStartQuiz={startQuiz} />}
+            { <MainPage onStartQuiz={startQuiz} />}
       </div>
     );
   }
@@ -60,7 +88,7 @@ function App() {
   else
     return(
     <div className="App">
-        <DiscoverResults />
+        <DiscoverResults results={answers} productsList={products} retakeQuiz={returnBack} wishlist= {wishlist} setWishlist={setWishlist}/>
       </div>
     );
 }

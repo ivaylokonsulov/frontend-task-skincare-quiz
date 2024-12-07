@@ -8,10 +8,12 @@ function QuizPage({onReturnBack, onCompletionOfQuiz, answers, setAnswers}) {
 
     // Handling clicking on next button
     const handleNext = () => {
-        if (currentQuestionIndex < questions.length - 1) {
+        if (currentQuestionIndex < questions.length - 1 && answers[currentQuestionIndex] != null) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
-        } else {
+        } else if (currentQuestionIndex === questions.length-1 && answers[currentQuestionIndex] != null){
             onCompletionOfQuiz();
+        }else{
+            alert("Please choose an answer!");
         }
     };
 
@@ -24,18 +26,14 @@ function QuizPage({onReturnBack, onCompletionOfQuiz, answers, setAnswers}) {
         }
     }
 
-
-
     // Handling answering a question
     function recordAnswer(index, option){
         setAnswers((prevAnswers) => {
             const newAnswers = [...prevAnswers]; 
             newAnswers[index] = option; 
-            console.log(newAnswers);
             return newAnswers; // Return the updated array
           });
         // Moving on the next question using handleNext function
-        handleNext();
     }
 
     return (
@@ -45,7 +43,9 @@ function QuizPage({onReturnBack, onCompletionOfQuiz, answers, setAnswers}) {
             </div>
             <div className="options-div">
             {questions[currentQuestionIndex].options.map((option, index) => (
-            <button className="answer-option-button" onClick={() => recordAnswer(currentQuestionIndex, option)} key={index}>{option} </button>
+            <button className={`answer-option-button ${option === answers[currentQuestionIndex] ? 'selected' : ''}`}
+            id={option} 
+            onClick={() => recordAnswer(currentQuestionIndex, option)} key={index}>{option} </button>
             ))}
             </div>
             <div className="back-next-div">
@@ -54,14 +54,13 @@ function QuizPage({onReturnBack, onCompletionOfQuiz, answers, setAnswers}) {
                         Back
                     </button>
                     <button className='quiz-page-next-button' onClick={handleNext}>
-                        {currentQuestionIndex === questions.length - 1 ? "Discover your results" : "Next Question"}
+                        {currentQuestionIndex === questions.length - 1 ? "Discover your results" : "Next Question →" }
                     </button>
                 </div>
-                
             </div>
             <div className="progress-container">
                     <ProgressCircle currentQuestion={currentQuestionIndex + 1} totalQuestions={questions.length}/>
-                </div>
+            </div>
         </div>
     );
 }

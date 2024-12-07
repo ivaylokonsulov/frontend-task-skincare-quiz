@@ -1,0 +1,153 @@
+.main-div{
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    align-items: center;
+    min-height: 100vh;
+    overflow: visible;
+}
+
+.image-div{
+    position: relative;
+    width: 100%; /* Full width */
+    height: 50vh; /* Half the viewport height */
+    background-image: url('./DiscoverResultsImage.png');
+    background-repeat: no-repeat;
+    background-size: cover; /* Ensure the background covers the div */
+    display: flex; /* Flexbox for centering */
+    /* Content positioning */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    z-index: 0;
+}
+
+.title-text-div{
+    display: block;
+    width: 40%;
+    color: #FFFFFF;
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.title-div{
+    font-size: 40px;
+    line-height: 44px;
+    font-family: Arial, Helvetica, sans-serif; /* TODO change to Grange */
+    font-weight: 600;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 32px;
+}
+
+.subtitle-div{
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif; /* TODO change to Proxima Nova */
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 32px;
+}
+
+.retake-quiz-button{
+    border-radius: 8px;
+    border-color: #FFFFFF;
+    border-width: 1px;
+    background-color: transparent;
+    color: #FFFFFF;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.retake-quiz-button:hover{
+    cursor: pointer;
+    border-color: #C3EDFF;
+}
+
+.recommended-products-div{
+    position: relative;
+    overflow: visible;
+    width: 78vw;
+    margin-top: -70px;
+    justify-content: center;
+    z-index: 1;
+    color: #1C2635;
+    height: 50vh;
+    margin-bottom: 70px;
+}
+
+.product-image{
+    overflow: visible;
+    height: 45vh;
+    text-align: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.product-title{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif; /* TODO Change to Grange */
+    width: 45vh;
+}
+
+.product-div{
+    width: 30vw;
+    position: relative;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slick-slider .slick-next, 
+.slick-slider .slick-prev{
+    background-color: #EEF7FB;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: #1C2635;
+}
+
+.slick-arrow.slick-next::before,
+.slick-arrow.slick-prev::before{
+    color: #1C2635;
+    font-size: 30px;
+}
+
+.slick-slider .slick-next:hover, 
+.slick-slider .slick-prev:hover{
+    background-color: #C3EDFF;
+}
+
+
+.product-price{
+    text-align: center;
+    color: #1C2635;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif; /* TODO Change to Grange */
+    width: 45vh;
+}
+
+.product-favourite{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
+.product-favourite:hover{
+    cursor: pointer;
+}
