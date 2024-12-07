@@ -88,6 +88,7 @@
     text-align: center;
     justify-content: center;
     border-radius: 8px;
+    background-color: #FFFFFF;
 }
 
 .product-title{
@@ -116,6 +117,7 @@
     height: 60px;
     border-radius: 50%;
     color: #1C2635;
+    z-index: 10;
 }
 
 .slick-arrow.slick-next::before,

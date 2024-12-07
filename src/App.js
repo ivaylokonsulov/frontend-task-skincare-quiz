@@ -5,6 +5,7 @@ import MainPage from './MainPage.js';
 import React, { useState } from "react";
 import QuizPage from "./QuizPage";
 import DiscoverResults from "./DiscoverResults"
+import { useEffect } from 'react';
 
 function App() {
   // Main page flag
@@ -41,10 +42,35 @@ function App() {
     setWishlist(allProductIds);
   }
 
+  // Create recommendations
+  const[recommendations, setRecommendations] = useState({});
+  const[recommendationBody, setRecommendationBody] = useState("");
+  const createRecommendations = (usersAnswers) => {
+    // Storing type of hair into a lower case string, only the first 4 characters for better search
+    let typeOfHair = String(usersAnswers[0]).toLocaleLowerCase().substring(0,4);
+    
+    // Storing all recommendations
+    const recommendationsArray = [];
+    // Filtering by hair type
+    for (let index = 0; index < products.length; index++) {
+      const parser = new DOMParser();
+      const body = parser.parseFromString(products[index].body_html, "text/html");
+      const bodyText = body.body.textContent;
+
+      // Checking if body includes type of hair
+      if(bodyText.includes(typeOfHair)){
+        recommendationsArray.push(products[index]);
+        setRecommendationBody(bodyText);
+      }
+    }
+    setRecommendations(recommendationsArray);
+  }
+
   //  Function passed to Main Page to control whether Quiz Page is to be shown
   const startQuiz = () => {
     setMainPage(false);
-    setShowQuiz(true); // Switch to quiz page
+    setShowQuiz(true);
+    setDiscoverResults(false);
   };
   // Function passed to Quiz Page for handling Returning back to Main page
   const returnBack = () => {
@@ -55,11 +81,17 @@ function App() {
 
   // Function passed to Quiz Page for handling completion of test
   const completeTest = () => {
-    setDiscoverResults(true);
+    fetchProducts();
+    createRecommendations(answers);
     setShowQuiz(false);
     setMainPage(false);
-    fetchProducts();
   }
+
+  useEffect(() => {
+    if (recommendations.length > 0) {
+    setDiscoverResults(true);
+    }
+  }, [recommendations]);
 
   // Use state for answering questions. Creating an empty array to fill inset
   const [answers, setAnswers] = useState(Array(5).fill(null));
@@ -87,10 +119,11 @@ function App() {
   // Discover results page
   else
     return(
-    <div className="App">
-        <DiscoverResults results={answers} productsList={products} retakeQuiz={returnBack} wishlist= {wishlist} setWishlist={setWishlist}/>
-      </div>
-    );
+      <div className="App">
+          <DiscoverResults results={answers} productsList={recommendations} retakeQuiz={returnBack} wishlist= {wishlist} setWishlist={setWishlist} text={recommendationBody}/>
+        </div>
+      );
+   
 }
 
 export default App;

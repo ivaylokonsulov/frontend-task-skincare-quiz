@@ -2,23 +2,23 @@
 const questions = [
     {
       question: "What's your hair type or texture?",
-      options: ["a. Straight", "b. Curly", "c. Wavy", "d. Fine"],
+      options: ["Straight", "Curly", "Wavy", "Fine"],
     },
     {
       question: "How often do you wash your hair?",
-      options: ["a. Daily", "b. Every other day", "c. Twice a week", "d. Once a week", "e. Once every two weeks"],
+      options: ["Daily", "Every other day", "Twice a week", "Once a week", "Once every two weeks"],
     },
     {
       question: "What benefit do you look for in your hair products?",
-      options: ["a. Anti-breakage", "b. Hydration", "c. Soothing dry scalp", "d. Repairs the appearance of damaged hair", "e. Volume", "f. Curl and coil enhancing."],
+      options: ["Anti-breakage", "Hydration", "Soothing dry scalp", "Repairs the appearance of damaged hair", "Volume", "Curl and coil enhancing."],
     },
     {
       question: "Is there anything troubling you about your hair?",
-      options: ["a. Breakage", "b. Frizz", "c. Scalp dryness", "d. Damage", "e. Tangling"],
+      options: ["Breakage", "Frizz", "Scalp dryness", "Damage", "Tangling"],
     },
     {
       question: "What is your natural hair color(s) today?",
-      options: ["a. Black", "b. Brown", "c. Blonde", "d. Red/Orange", "e. Silver/Grey"],
+      options: ["Black", "Brown", "Blonde", "Red/Orange", "Silver/Grey"],
     },
   ];
   

@@ -31,9 +31,18 @@ function QuizPage({onReturnBack, onCompletionOfQuiz, answers, setAnswers}) {
         setAnswers((prevAnswers) => {
             const newAnswers = [...prevAnswers]; 
             newAnswers[index] = option; 
-            return newAnswers; // Return the updated array
+            return newAnswers;
           });
-        // Moving on the next question using handleNext function
+    }
+
+    // Matching indices with letters
+    const numericAlphabet = {
+        0 : "a",
+        1 : "b",
+        2 : "c",
+        3 : "d",
+        4 : "e",
+        5 : "f"
     }
 
     return (
@@ -45,7 +54,7 @@ function QuizPage({onReturnBack, onCompletionOfQuiz, answers, setAnswers}) {
             {questions[currentQuestionIndex].options.map((option, index) => (
             <button className={`answer-option-button ${option === answers[currentQuestionIndex] ? 'selected' : ''}`}
             id={option} 
-            onClick={() => recordAnswer(currentQuestionIndex, option)} key={index}>{option} </button>
+            onClick={() => recordAnswer(currentQuestionIndex, option)} key={index}>{numericAlphabet[index]}. {option} </button>
             ))}
             </div>
             <div className="back-next-div">
