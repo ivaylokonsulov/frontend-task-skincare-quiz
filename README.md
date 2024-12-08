@@ -1,31 +1,9 @@
-# Create React App
+# FrontEnd Task
 
-This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
-
-## Deploy Your Own
-
-Deploy your own Create React App project with Vercel.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/create-react-app&template=create-react-app)
-
-_Live Example: https://create-react-template.vercel.app/_
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes. You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.
-
-It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
+## General structure
+Each page is made of a React component, with its functionalities, declared inside.
+States are preserved at local storage and at each render it is checked if states exist or a default value should be provided.
+UI is made as responsive as possible, according to the design in Figma. Additional improvements may be made using SCSS/SASS.
+Simple recommendation algorithm is implemented, which basically checks if type of hair or the problem which the user is seeking solution to are present in the title/body/tags of each product. Description of the first recommended product is displayed.
+**NOTE** In case recommendations could not be made, all products are listed in the slider.
+[React-slick](https://react-slick.neostack.com/) was used to create slider component.
