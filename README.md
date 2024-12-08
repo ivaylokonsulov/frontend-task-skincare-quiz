@@ -8,4 +8,4 @@
    
 <em>In case recommendations could not be made, all products are listed in the slider.</em>
 
-6. [React-slick](https://react-slick.neostack.com/) was used to create slider component.
+5. [React-slick](https://react-slick.neostack.com/) was used to create slider component.
