@@ -1,6 +1,6 @@
 import ProductsSlider from "./ProductSlider";
 
-function DiscoverResuilts({ answers, productsList, retakeQuiz, wishlist, setWishlist, recommendationText }){
+function DiscoverResuilts({ answers, productsList, retakeQuiz, wishlist, setWishlist, text }){
 
     
     return(
@@ -11,7 +11,7 @@ function DiscoverResuilts({ answers, productsList, retakeQuiz, wishlist, setWish
                         Build your everyday self care routine.
                     </div>
                     <div className="subtitle-div">
-                        {recommendationText}
+                        <p>{text}</p>
                     </div>
                     <div className="button-div">
                         <button className="retake-quiz-button" onClick={retakeQuiz}>
